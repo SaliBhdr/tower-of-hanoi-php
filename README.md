@@ -11,7 +11,8 @@ it's going to show a form.
 The form contains 1 input for entering number of disks and 3 options for showing the result.
 
 ## options
+You can output the result with these three options:
 
-1- full draw : visual drawing of solving the algorithm
-2- simple solve : just outputs the steps
-3- only moves : outputs the minimum number of moves for solving the algorithm based on disks
+1) full draw : visual drawing of solving the algorithm
+2) simple solve : just outputs the steps
+3) only moves : outputs the minimum number of moves for solving the algorithm based on disks
