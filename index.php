@@ -19,7 +19,7 @@ require __DIR__ . "/consts.php";
 <div class="main">
     <div class="header">
         <h1><a style="color: #fff;text-decoration: none;" target="_blank"
-               href="https://en.wikipedia.org/wiki/Tower_of_Hanoi"><?= HOME_PAGE_TITLE ?></a></h1>
+               href="https://github.com/SaliBhdr/tower-of-hanoi"><?= HOME_PAGE_TITLE ?></a></h1>
     </div>
     <div class="container">
         <form id="booking-form" class="booking-form" method="GET" action="towers.php">
@@ -32,13 +32,13 @@ require __DIR__ . "/consts.php";
                     <span class="modify-qty minus" onClick="down()"><i class="zmdi zmdi-chevron-down"></i></span>
                 </div>
                 <div class="form-destination">
-                    <label for="full">full draw</label>
+                    <label for="full">Full Draw</label>
                     <input type="radio" id="full" name="<?= SOLVE_INPUT_NAME ?>" value="<?= OUTPUT_FULL ?>" checked>
 
-                    <label for="simple">simple solve</label>
+                    <label for="simple">Simple Solve</label>
                     <input type="radio" id="simple" name="<?= SOLVE_INPUT_NAME ?>" value="<?= OUTPUT_SIMPLE ?>">
 
-                    <label for="moves">only moves</label>
+                    <label for="moves">Only Moves</label>
                     <input type="radio" id="moves" name="<?= SOLVE_INPUT_NAME ?>" value="<?= OUTPUT_MOVES ?>">
                 </div>
                 <div class="form-submit">
