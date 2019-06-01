@@ -31,7 +31,7 @@ function getMovesHtml($totalDisks)
 {
     $moves = getTotalMoves($totalDisks);
     $html = "<div class='col-sm-12' style='border-bottom: 1px solid lightgrey;padding-bottom: 18px;'>";
-    $html .= "<h3 style='font-size: 20px;' class='col-sm-6'>number of disks : {$totalDisks}</h3><h3 style='font-size: 20px;' class='col-sm-6'>Total Moves : {$moves}</h3>";
+    $html .= "<h3 style='font-size: 15px;' class='col-sm-6'>Number of disks : {$totalDisks}</h3><h3 style='font-size: 15px;' class='col-sm-6'>Total Moves : {$moves}</h3>";
     $html .= "</div>";
 
     return $html;
@@ -61,7 +61,7 @@ function getStartTowersHtml($diskCount, $towerColumns)
     $html .= buildAllTowers($diskCount, $towerColumns);
     $html .= "</div>";
     $html .= "<div class='col-sm-12' style='border-bottom: 1px solid lightgrey;padding-bottom: 18px;'>";
-    $html .= "Start of towers" . "<br/>";
+    $html .= "Start towers" . "<br/>";
     $html .= "</div>";
 
     return $html;
@@ -116,7 +116,7 @@ function buildTower($totalDisks, $column)
 {
     $height = 25 * $totalDisks;
 
-    $html = "<div class='col-sm-4 panel-body center' style='height: {$height}px'>";
+    $html = "<div class='col-sm-4 center' style='height: {$height}px;border: 1px solid #eaeaea;min-height: 80px;border-bottom: none ;border-top: none'>";
 
     if (empty($column)) {
         $html .= "</div>";
