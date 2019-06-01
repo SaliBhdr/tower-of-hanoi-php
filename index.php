@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . "/consts.php";
+require __DIR__ . "/includes/consts.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,8 +18,11 @@ require __DIR__ . "/consts.php";
 <body>
 <div class="main">
     <div class="header">
-        <h1><a style="color: #fff;text-decoration: none;" target="_blank"
-               href="https://github.com/SaliBhdr/tower-of-hanoi"><?= HOME_PAGE_TITLE ?></a></h1>
+        <h1>
+            <a target="_blank" href="https://github.com/SaliBhdr/tower-of-hanoi">
+                <?= HOME_PAGE_TITLE ?>
+            </a>
+        </h1>
     </div>
     <div class="container">
         <form id="booking-form" class="booking-form" method="GET" action="towers.php">
