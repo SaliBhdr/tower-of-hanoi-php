@@ -71,12 +71,10 @@ function buildDisks($diskCount)
 {
     $disks = [];
 
-    $top = 85 / $diskCount;
     for ($i = $diskCount; $i >= 1; $i--) {
-        $t = $top * $i;
         $width = 100 / ($diskCount + 1) * $i;
         $color = getDiskColor($i);
-        $disks[$i] = "<p style='top: {$t}%;width: {$width}%; height: 20px; background: {$color}; border-radius: 100px / 50px;'></p><br>";
+        $disks[$i] = "<p class='disk' style='{{{".TOPMARGIN_KEY."}}};width: {$width}%; background: {$color};'></p><br>";
     }
 
     return $disks;
@@ -100,7 +98,6 @@ function diskMover($condition, $diskCount, &$towerColumns)
     return $towerColumns;
 }
 
-
 function buildAllTowers($diskCount, array &$towerColumns)
 {
     $html = "<div class='col-sm-12' style='padding-bottom: 18px;'>";
@@ -123,8 +120,12 @@ function buildTower($totalDisks, $column)
         return $html;
     }
 
-    foreach ($column as $disk) {
-        $html .= $disk;
+    foreach ($column as $key => $disk) {
+
+        $t = 20 * $totalDisks;
+
+        $html .= str_replace('{{{'.TOPMARGIN_KEY.'}}}',"top: {$t}px",$disk);
+        $totalDisks--;
     }
 
     $html .= "</div>";
