@@ -383,10 +383,12 @@ function getTowerParams()
         $method = (isset($_GET[SOLVE_INPUT_NAME]))
             ? $_GET[SOLVE_INPUT_NAME]
             : OUTPUT_FULL;
+
         $diskCount = (isset($_GET[DISKS_INPUT_NAME]) && $_GET[DISKS_INPUT_NAME] >= 1)
             ? $_GET[DISKS_INPUT_NAME]
             : DEFAULT_DISKS_COUNT;
+
     }
 
-    return [$method, $diskCount];
+    return [$method, (int)$diskCount];
 }

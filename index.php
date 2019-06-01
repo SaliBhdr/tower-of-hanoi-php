@@ -31,18 +31,18 @@ require __DIR__ . "/includes/consts.php";
                     <label for="quantity">Disks</label>
                     <span class="modify-qty plus" onClick="up()"><i class="zmdi zmdi-chevron-up"></i></span>
                     <input type="text" name="<?= DISKS_INPUT_NAME ?>" id="quantity" value="<?= DEFAULT_DISKS_COUNT ?>"
-                           class="nput-text qty text">
+                           class="nput-text qty text" required>
                     <span class="modify-qty minus" onClick="down()"><i class="zmdi zmdi-chevron-down"></i></span>
                 </div>
                 <div class="form-destination">
                     <label for="full">Full Draw</label>
-                    <input type="radio" id="full" name="<?= SOLVE_INPUT_NAME ?>" value="<?= OUTPUT_FULL ?>" checked>
+                    <input type="radio" id="full" name="<?= SOLVE_INPUT_NAME ?>" value="<?= OUTPUT_FULL ?>" checked required>
 
                     <label for="simple">Simple Solve</label>
-                    <input type="radio" id="simple" name="<?= SOLVE_INPUT_NAME ?>" value="<?= OUTPUT_SIMPLE ?>">
+                    <input type="radio" id="simple" name="<?= SOLVE_INPUT_NAME ?>" value="<?= OUTPUT_SIMPLE ?>" required>
 
                     <label for="moves">Only Moves</label>
-                    <input type="radio" id="moves" name="<?= SOLVE_INPUT_NAME ?>" value="<?= OUTPUT_MOVES ?>">
+                    <input type="radio" id="moves" name="<?= SOLVE_INPUT_NAME ?>" value="<?= OUTPUT_MOVES ?>" required>
                 </div>
                 <div class="form-submit">
                     <input type="submit" id="submit" class="submit" name="<?= SUBMIT_BTN_NAME ?>"
