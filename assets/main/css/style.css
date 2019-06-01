@@ -341,6 +341,16 @@ label {
   border-radius: 10px;
 }
 
+.header h1 a{
+  color: #fff;
+  text-decoration: none;
+}
+
+.header h1 a:hover{
+  color: #dadada;
+}
+
+
 @media screen and (max-width: 768px) {
   .container {
     width: calc( 100% - 30px);

@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . "/consts.php";
+require __DIR__ . "/includes/consts.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,27 +17,31 @@ require __DIR__ . "/consts.php";
     <link rel="stylesheet" href="assets/main/css/style.css">
 </head>
 <?php
-require __DIR__ . "/functions.php";
+require __DIR__ . "/includes/functions.php";
 
 list($method, $diskCount) = getTowerParams();
 ?>
 <body>
 <div class="main">
     <div class="header">
-        <h1><a href="index.php" style="color: #fff;text-decoration: none;"><?= HANOI_SOLVE_PAGE_TITLE ?></h1>
+        <h1>
+            <a href="index.php">
+                <?= HANOI_SOLVE_PAGE_TITLE ?>
+            </a>
+        </h1>
     </div>
-    <div class="container" style="color: #000;">
+    <div class="container text-black">
         <div class='row'>
 
-            <div class='col-sm-12' style="margin-bottom: 25px;height: 50px;">
+            <div class='col-sm-12 column-headings-container'>
                 <?php if ($method == OUTPUT_FULL) { ?>
-                    <div class='col-sm-4 text-center' style="padding: 15px 10px;border: 1px solid #595959;border-bottom: none ;border-top: none">
+                    <div class='col-sm-4 text-center column-headings'>
                         <h1><?= COLUMN_FIRST ?></h1>
                     </div>
-                    <div class='col-sm-4 text-center' style="padding: 15px 10px;border: 1px solid #595959;border-bottom: none ;border-top: none">
+                    <div class='col-sm-4 text-center column-headings'>
                         <h1><?= COLUMN_SECOND ?></h1>
                     </div>
-                    <div class='col-sm-4 text-center' style="padding: 15px 10px;border: 1px solid #595959;border-bottom: none ;border-top: none">
+                    <div class='col-sm-4 text-center column-headings'>
                         <h1><?= COLUMN_THIRD ?></h1>
                     </div>
                 <?php } ?>
