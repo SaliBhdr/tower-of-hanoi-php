@@ -1,7 +1,7 @@
 <?php
 
 
-function towerOfHanoi($diskCount, $totalDisks = 0, $a = 'A', $b = 'B', $c = 'C', &$towerColumns = null, $isFirstTime = true)
+function towerOfHanoi($diskCount, $totalDisks = 0, $a = COLUMN_FIRST, $b = COLUMN_SECOND, $c = COLUMN_THIRD, &$towerColumns = null, $isFirstTime = true)
 {
     if ($isFirstTime) {
         $totalDisks = $diskCount;
@@ -49,9 +49,9 @@ function getMoveDescriptionHtml($from, $to)
 function startTowerColumns($diskCount)
 {
     return [
-        'a' => buildDisks($diskCount),
-        'b' => [],
-        'c' => [],
+        COLUMN_FIRST => buildDisks($diskCount),
+        COLUMN_SECOND => [],
+        COLUMN_THIRD => [],
     ];
 }
 
@@ -84,12 +84,9 @@ function buildDisks($diskCount)
 
 function diskMover($condition, $diskCount, &$towerColumns)
 {
-
     if ($diskCount != 1) {
         return $towerColumns;
     }
-
-    $condition = strtolower($condition);
 
     $condition = explode('.', $condition);
 
@@ -107,9 +104,9 @@ function diskMover($condition, $diskCount, &$towerColumns)
 function buildAllTowers($diskCount, array &$towerColumns)
 {
     $html = "<div class='col-sm-12' style='padding-bottom: 18px;'>";
-    $html .= buildTower($diskCount, $towerColumns['a']);
-    $html .= buildTower($diskCount, $towerColumns['b']);
-    $html .= buildTower($diskCount, $towerColumns['c']);
+    $html .= buildTower($diskCount, $towerColumns[COLUMN_FIRST]);
+    $html .= buildTower($diskCount, $towerColumns[COLUMN_SECOND]);
+    $html .= buildTower($diskCount, $towerColumns[COLUMN_THIRD]);
     $html .= "</div>";
 
     return $html;
@@ -143,7 +140,7 @@ function getDiskColor($n)
     return ("#" . substr("000000" . dechex($n), -6));
 }
 
-function simpleTowerOfHanoi($diskCount, $a = 'A', $b = 'B', $c = 'C')
+function simpleTowerOfHanoi($diskCount, $a = COLUMN_FIRST, $b = COLUMN_SECOND, $c = COLUMN_THIRD)
 {
     if ($diskCount == 1) {
         echo " Move disk from " . "<span style='color: red'>" . $a . "</span>" . " to " . "<span style='color: blue'>" . $c . "</span>" . "<br/>";
@@ -152,5 +149,56 @@ function simpleTowerOfHanoi($diskCount, $a = 'A', $b = 'B', $c = 'C')
         simpleTowerOfHanoi($diskCount - 1, $a, $c, $b);
         simpleTowerOfHanoi(1, $a, $b, $c);
         simpleTowerOfHanoi($diskCount - 1, $b, $a, $c);
+    }
+}
+
+function solveBasedOnOutputType($method,$diskCount){
+    switch ($method) {
+        case OUTPUT_FULL:
+            echo getMovesHtml($diskCount);
+            towerOfHanoi($diskCount);
+            echo getMovesHtml($diskCount);
+            break;
+        case OUTPUT_SIMPLE:
+            echo getMovesHtml($diskCount);
+            simpleTowerOfHanoi($diskCount);
+            echo getMovesHtml($diskCount);
+            break;
+        case OUTPUT_MOVES:
+            echo getMovesHtml($diskCount);
+            break;
+        default:
+            defaultOutput($diskCount);
+            break;
+    }
+}
+
+function defaultOutput($diskCount){
+    echo getMovesHtml($diskCount);
+    towerOfHanoi($diskCount);
+    echo getMovesHtml($diskCount);
+}
+
+function getTowerParams(){
+    $method = OUTPUT_FULL;
+    $diskCount = DEFAULT_DISKS_COUNT;
+
+    if (isset($_GET[SUBMIT_BTN_NAME]) && $_GET[SUBMIT_BTN_NAME] == SUBMIT_BTN_VALUE) {
+        $method = (isset($_GET[SOLVE_INPUT_NAME]))
+            ? $_GET[SOLVE_INPUT_NAME]
+            : OUTPUT_FULL;
+        $diskCount = (isset($_GET[DISKS_INPUT_NAME]) && $_GET[DISKS_INPUT_NAME] >= 1)
+            ? $_GET[DISKS_INPUT_NAME]
+            : DEFAULT_DISKS_COUNT;
+    }
+
+    return [$method,$diskCount];
+}
+
+function outputTowerAnswer($method,$diskCount){
+    if (isset($method) && isset($diskCount)) {
+        solveBasedOnOutputType($method, $diskCount);
+    } else {
+        defaultOutput(DEFAULT_DISKS_COUNT);
     }
 }
