@@ -12,5 +12,26 @@
 
 .disk{
     border-radius: 100px / 50px;
-    height: 20px
+    height: 20px;
+    text-align: center;
+    padding-bottom: 3px;
+    padding-top: 0;
+    color: #FFF;
+    font-size: 11px;
+}
+
+div .tower-container{
+    border: 1px solid #eaeaea;
+    min-height: 80px;
+    border-bottom: none ;
+    border-top: none
+}
+
+div .moves-container{
+    border-bottom: 1px solid lightgrey;
+    padding-bottom: 18px;
+}
+
+.moves-container h3{
+    font-size: 15px;
 }
