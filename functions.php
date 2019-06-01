@@ -30,8 +30,9 @@ function getTotalMoves($totalDisks)
 function getMovesHtml($totalDisks)
 {
     $moves = getTotalMoves($totalDisks);
-    $html = "<div class='col-sm-12' style='border-bottom: 1px solid lightgrey;padding-bottom: 18px;'>";
-    $html .= "<h3 style='font-size: 15px;' class='col-sm-6'>Number of disks : {$totalDisks}</h3><h3 style='font-size: 15px;' class='col-sm-6'>Total Moves : {$moves}</h3>";
+    $html = "<div class='col-sm-12 moves-container'>";
+    $html .= "<h3 class='col-sm-6'>Number of disks : {$totalDisks}</h3>";
+    $html .= "<h3 class='col-sm-6'>Total Moves : {$moves}</h3>";
     $html .= "</div>";
 
     return $html;
@@ -61,7 +62,7 @@ function getStartTowersHtml($diskCount, $towerColumns)
     $html .= buildAllTowers($diskCount, $towerColumns);
     $html .= "</div>";
     $html .= "<div class='col-sm-12' style='border-bottom: 1px solid lightgrey;padding-bottom: 18px;'>";
-    $html .= "Start towers" . "<br/>";
+    $html .= "Start Towers" . "<br/>";
     $html .= "</div>";
 
     return $html;
@@ -74,7 +75,7 @@ function buildDisks($diskCount)
     for ($i = $diskCount; $i >= 1; $i--) {
         $width = 100 / ($diskCount + 1) * $i;
         $color = getDiskColor($i);
-        $disks[$i] = "<p class='disk' style='{{{".TOPMARGIN_KEY."}}};width: {$width}%; background: {$color};'></p><br>";
+        $disks[$i] = "<p class='disk' style='{{{" . TOPMARGIN_KEY . "}}};width: {$width}%; background: {$color};'>{$i}</p><br>";
     }
 
     return $disks;
@@ -90,7 +91,7 @@ function diskMover($condition, $diskCount, &$towerColumns)
 
     if (count($towerColumns[$condition[0]]) > 0) {
         $disk = end($towerColumns[$condition[0]]);
-        $diskNumber = array_search($disk,$towerColumns[$condition[0]]);
+        $diskNumber = array_search($disk, $towerColumns[$condition[0]]);
         unset($towerColumns[$condition[0]][$diskNumber]);
         $towerColumns[$condition[1]][$diskNumber] = $disk;
     }
@@ -113,7 +114,7 @@ function buildTower($totalDisks, $column)
 {
     $height = 25 * $totalDisks;
 
-    $html = "<div class='col-sm-4 center' style='height: {$height}px;border: 1px solid #eaeaea;min-height: 80px;border-bottom: none ;border-top: none'>";
+    $html = "<div class='col-sm-4 center tower-container' style='height: {$height}px;'>";
 
     if (empty($column)) {
         $html .= "</div>";
@@ -124,7 +125,7 @@ function buildTower($totalDisks, $column)
 
         $t = 20 * $totalDisks;
 
-        $html .= str_replace('{{{'.TOPMARGIN_KEY.'}}}',"top: {$t}px",$disk);
+        $html .= str_replace('{{{' . TOPMARGIN_KEY . '}}}', "top: {$t}px", $disk);
         $totalDisks--;
     }
 
@@ -153,7 +154,8 @@ function simpleTowerOfHanoi($diskCount, $a = COLUMN_FIRST, $b = COLUMN_SECOND, $
     }
 }
 
-function solveBasedOnOutputType($method,$diskCount){
+function solveBasedOnOutputType($method, $diskCount)
+{
     switch ($method) {
         case OUTPUT_FULL:
             echo getMovesHtml($diskCount);
@@ -174,13 +176,15 @@ function solveBasedOnOutputType($method,$diskCount){
     }
 }
 
-function defaultOutput($diskCount){
+function defaultOutput($diskCount)
+{
     echo getMovesHtml($diskCount);
     towerOfHanoi($diskCount);
     echo getMovesHtml($diskCount);
 }
 
-function getTowerParams(){
+function getTowerParams()
+{
     $method = OUTPUT_FULL;
     $diskCount = DEFAULT_DISKS_COUNT;
 
@@ -193,10 +197,11 @@ function getTowerParams(){
             : DEFAULT_DISKS_COUNT;
     }
 
-    return [$method,$diskCount];
+    return [$method, $diskCount];
 }
 
-function outputTowerAnswer($method,$diskCount){
+function outputTowerAnswer($method, $diskCount)
+{
     if (isset($method) && isset($diskCount)) {
         solveBasedOnOutputType($method, $diskCount);
     } else {
