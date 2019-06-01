@@ -192,23 +192,20 @@ body {
   font-size: 14px;
   line-height: 1.8;
   color: #fff;
-  background-image: url("../images/form-img.png");
-  background-repeat: no-repeat;
+  background: url("../images/form-img.png");
   background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  -o-background-size: cover;
-  -ms-background-size: cover;
-  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   font-weight: 600;
   font-family: Poppins;
-  margin: 0px; }
+  margin: 0px;
+}
 
 .main {
   position: relative; }
 
 .container {
-  width: 960px;
+  width: 95%;
   background: rgba(11, 13, 24, 0.6);
   margin: 265px auto;
   border-radius: 10px;
