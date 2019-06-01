@@ -40,7 +40,7 @@ function getMovesHtml($totalDisks)
 function getMoveDescriptionHtml($from, $to)
 {
     $html = "<div class='col-sm-12' style='border-bottom: 1px solid lightgrey;padding-bottom: 18px;'>";
-    $html .= " Move disk from column " . "<span style='color: red'>" . $from . "</span>" . " to column " . "<span style='color: blue'>" . $to . "</span>" . "<br/>";
+    $html .= "Move disk from column " . "<span class='text-danger'>" . $from . "</span>" . " to column " . "<span class='text-warning'>" . $to . "</span>" . "<br/>";
     $html .= "</div>";
 
     return $html;
@@ -91,10 +91,10 @@ function diskMover($condition, $diskCount, &$towerColumns)
     $condition = explode('.', $condition);
 
     if (count($towerColumns[$condition[0]]) > 0) {
-
-        $disk = array_pop($towerColumns[$condition[0]]);
-
-        array_push($towerColumns[$condition[1]], $disk);
+        $disk = end($towerColumns[$condition[0]]);
+        $diskNumber = array_search($disk,$towerColumns[$condition[0]]);
+        unset($towerColumns[$condition[0]][$diskNumber]);
+        $towerColumns[$condition[1]][$diskNumber] = $disk;
     }
 
     return $towerColumns;
@@ -134,7 +134,7 @@ function buildTower($totalDisks, $column)
 
 function getDiskColor($n)
 {
-    $n *= 10;
+    $n *= 70;
     $n = crc32($n);
     $n &= 0xffffffff;
     return ("#" . substr("000000" . dechex($n), -6));
@@ -143,7 +143,7 @@ function getDiskColor($n)
 function simpleTowerOfHanoi($diskCount, $a = COLUMN_FIRST, $b = COLUMN_SECOND, $c = COLUMN_THIRD)
 {
     if ($diskCount == 1) {
-        echo " Move disk from " . "<span style='color: red'>" . $a . "</span>" . " to " . "<span style='color: blue'>" . $c . "</span>" . "<br/>";
+        echo "Move disk from column " . "<span class='text-danger'>" . $a . "</span>" . " to column " . "<span class='text-warning'>" . $c . "</span>" . "<br/>";
 
     } else {
         simpleTowerOfHanoi($diskCount - 1, $a, $c, $b);
