@@ -125,9 +125,9 @@ function diskMover($condition, $diskCount, &$towerColumns)
 function buildAllTowers($diskCount, array &$towerColumns)
 {
     $html = "<div class='col-sm-12 pb18p'>";
-    $html .= buildTower($diskCount, $towerColumns[COLUMN_FIRST]);
-    $html .= buildTower($diskCount, $towerColumns[COLUMN_SECOND]);
-    $html .= buildTower($diskCount, $towerColumns[COLUMN_THIRD]);
+    $html .= buildTower($diskCount, $towerColumns[COLUMN_FIRST],COLUMN_FIRST);
+    $html .= buildTower($diskCount, $towerColumns[COLUMN_SECOND],COLUMN_SECOND);
+    $html .= buildTower($diskCount, $towerColumns[COLUMN_THIRD],COLUMN_THIRD);
     $html .= "</div>";
 
     return $html;
@@ -138,14 +138,16 @@ function buildAllTowers($diskCount, array &$towerColumns)
  *
  * @param int $totalDisks
  * @param array $column
+ * @param $columnName
  * @return string
  */
-function buildTower($totalDisks, $column)
+function buildTower($totalDisks, $column,$columnName)
 {
     $height = DISK_SPACE * $totalDisks;
 
     //open tower container div
     $html = "<div class='col-sm-4 center tower-container' style='height: {$height}px;'>";
+    $html .= "<p class='column-tag'>{$columnName}</p>";
 
     if (empty($column)) {
         $html .= "</div>";

@@ -34,13 +34,13 @@ list($method, $diskCount) = getTowerParams();
 
             <div class='col-sm-12 column-headings-container'>
                 <?php if ($method == OUTPUT_FULL) { ?>
-                    <div class='col-sm-4 text-center column-headings'>
+                    <div class='col-sm-4 text-center column-headings visible-md visible-lg'>
                         <h1><?= COLUMN_FIRST ?></h1>
                     </div>
-                    <div class='col-sm-4 text-center column-headings'>
+                    <div class='col-sm-4 text-center column-headings visible-md visible-lg'>
                         <h1><?= COLUMN_SECOND ?></h1>
                     </div>
-                    <div class='col-sm-4 text-center column-headings'>
+                    <div class='col-sm-4 text-center column-headings visible-md visible-lg'>
                         <h1><?= COLUMN_THIRD ?></h1>
                     </div>
                 <?php } ?>
