@@ -4,20 +4,19 @@ Simple PHP script to solve tower of hanoi alogorithm with viasual moves
 ## Introduction
 
 Tower of Hanoi game is a puzzle invented by French mathematician Édouard Lucas in 1883.
-History of Tower of Hanoi
 
-There is a story about an ancient temple in India (Some say it’s in Vietnam – hence the name Hanoi) has a large room with three towers surrounded by 64 golden disks.
+**History of Tower of Hanoi**
 
-These disks are continuously moved by priests in the temple. According to a prophecy, when the last move of the puzzle is completed the world will end.
+There is a story about an ancient temple in India (Some say it’s in Vietnam – hence the name Hanoi) 
+has a large room with three towers surrounded by 64 golden disks. (1.844674407371E+19 days)
+These disks are continuously moved by priests in the temple. According to a prophecy, 
+when the last move of the puzzle is completed the world will end.
+These priests acting on the prophecy, follow the immutable rule by Lord Brahma 
+of moving these disk one at a time.Hence this puzzle is often called Tower of Brahma puzzle.
+Tower of Hanoi is one of the classic problems to look at if you want to learn **recursion**.
+It is good to understand how **recursive** solutions are arrived at and how parameters for this recursion are implemented.
 
-These priests acting on the prophecy, follow the immutable rule by Lord Brahma of moving these disk one at a time.
-
-Hence this puzzle is often called Tower of Brahma puzzle.
-
-Tower of Hanoi is one of the classic problems to look at if you want to learn recursion.
-
-It is good to understand how recursive solutions are arrived at and how parameters for this recursion are implemented.
-What is the game of Tower of Hanoi?
+**What is the game of Tower of Hanoi?**
 
 Tower of Hanoi consists of three pegs or towers with n disks placed one over the other.
 
@@ -27,13 +26,13 @@ The objective of the puzzle is to move the stack to another peg following these 
 2) No disk can be placed on top of the smaller disk.
 
 # Usage
-Just clone the script and add it into your local repository. Open index.php in address bar like:
+
+Just clone or download the script. Put it into your local repository. Open index.php in address bar like so:
 ```
 http://localhost/tower-of-hanoi/index.php
 ```
 
-It's going to show a form.
-The form contains one input for entering number of disks and 3 options for showing the result.
+A form will appear.The form contains one input for entering number of disks and 3 options for showing the result.
 
 Here is the simple algorithm of tower of hanoi
 ```
