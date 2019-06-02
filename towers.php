@@ -1,5 +1,6 @@
 <?php
 require __DIR__ . "/includes/consts.php";
+require __DIR__ . "/includes/functions.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,8 +18,6 @@ require __DIR__ . "/includes/consts.php";
     <link rel="stylesheet" href="assets/main/css/style.css">
 </head>
 <?php
-require __DIR__ . "/includes/functions.php";
-
 list($method, $diskCount) = getTowerParams();
 ?>
 <body>

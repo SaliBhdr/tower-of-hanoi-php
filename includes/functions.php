@@ -59,9 +59,9 @@ function towerOfHanoi($diskCount, $totalDisks = 0, $a = COLUMN_FIRST, $b = COLUM
 function startTowerColumns($diskCount)
 {
     return [
-        COLUMN_FIRST => buildDisks($diskCount),
+        COLUMN_FIRST  => buildDisks($diskCount),
         COLUMN_SECOND => [],
-        COLUMN_THIRD => [],
+        COLUMN_THIRD  => [],
     ];
 }
 
@@ -102,14 +102,14 @@ function diskMover($condition, $diskCount, &$towerColumns)
 
     // separated the source and destination columns that concatenated with '.'
     // $condition is a string like A.B which A is source column and B is destionation column
-    list($sourceColumn,$destinationColumn) = explode('.', $condition);
+    list($sourceColumn, $destinationColumn) = explode('.', $condition);
 
     if (count($towerColumns[$sourceColumn]) > 0) {
         //take the top disk from source column
         $disk = array_pop($towerColumns[$sourceColumn]);
 
         //put it at the top of destination column
-        array_push($towerColumns[$destinationColumn],$disk);
+        array_push($towerColumns[$destinationColumn], $disk);
     }
 
     return $towerColumns;
@@ -144,6 +144,7 @@ function buildTower($totalDisks, $column)
 {
     $height = DISK_SPACE * $totalDisks;
 
+    //open tower container div
     $html = "<div class='col-sm-4 center tower-container' style='height: {$height}px;'>";
 
     if (empty($column)) {
@@ -151,14 +152,10 @@ function buildTower($totalDisks, $column)
         return $html;
     }
 
-    foreach ($column as $disk) {
+    // putting disks in tower
+    $html .= arrangeDisksInTower($column,$totalDisks);
 
-        $t = DISK_HEIGHT * $totalDisks;
-
-        $html .= str_replace('{{{' . TOPMARGIN_KEY . '}}}', "top: {$t}px", $disk);
-        $totalDisks--;
-    }
-
+    //close the tower container
     $html .= "</div>";
 
     return $html;
@@ -352,7 +349,8 @@ function outputTowerAnswer($method, $diskCount)
  * @param int $diskCount
  * @return bool
  */
-function isDiskMovable($diskCount){
+function isDiskMovable($diskCount)
+{
     return $diskCount == 1;
 }
 
@@ -362,7 +360,8 @@ function isDiskMovable($diskCount){
  * @param int $diskCount
  * @return bool
  */
-function isDiskNotMovable($diskCount){
+function isDiskNotMovable($diskCount)
+{
     return $diskCount != 1;
 }
 
@@ -391,4 +390,61 @@ function getTowerParams()
     }
 
     return [$method, (int)$diskCount];
+}
+
+/**
+ * We need to divide the entire column space by the number of disks to get the total number of
+ * spaces that every disk is possible to occupy (If the disk is present in the column,
+ * otherwise the space is going to occupy with another disk). After that,
+ * we have to multiply the position of each disk to its height so that
+ * the spacing of each disk from top border of the column is obtained.
+ *
+ * So here is the major deal here : in order to manage to add disk
+ * at the bottom of column and then put the disk on top of that
+ * we have to calculate the possible spaces that every this
+ * will occupy. Then get the disk step by step and add
+ * it to that space and left the other spaces to be empty
+ *
+ * @param int $diskLevel
+ * @return float|int
+ */
+function makeDiskDistanceFromTop($diskLevel)
+{
+    return (DISK_HEIGHT * $diskLevel) . "px";
+}
+
+/**
+ * we can not distance from top at the creation level, because we do not know how many disks are going to be in the column yet to calculate the distance from top border
+ * So we add a flag at the creation level instead of `css top property` and after calculation replace the top property with the calculated value
+ *
+ * @param $disk
+ * @param int $diskDistanceFromTop
+ * @return string
+ */
+function replaceTopMargin($disk, $diskDistanceFromTop)
+{
+    return str_replace('{{{' . TOPMARGIN_KEY . '}}}', "top: {$diskDistanceFromTop}", $disk);
+}
+
+/**
+ * Arranging and putting the disks from bottom to top
+ *
+ * @param array $column
+ * @param int $numberOfDiskLevels number of disks is a tower (present or not present)
+ * @return string
+ */
+function arrangeDisksInTower(array $column, $numberOfDiskLevels){
+
+    $html = '';
+
+    foreach ($column as $disk) {
+
+        $diskDistanceFromTop = makeDiskDistanceFromTop($numberOfDiskLevels);
+
+        $html .= replaceTopMargin($disk, $diskDistanceFromTop);
+
+        $numberOfDiskLevels--;
+    }
+
+    return $html;
 }
