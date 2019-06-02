@@ -10,7 +10,8 @@ Tower of Hanoi game is a puzzle invented by French mathematician Édouard Lucas 
 **History of Tower of Hanoi**
 
 There is a story about an ancient temple in India (Some say it’s in Vietnam – hence the name Hanoi) 
-has a large room with three towers surrounded by 64 golden disks. (1.844674407371E+19 days)
+has a large room with three towers surrounded by 64 golden disks (1.844674407371E+19 days).
+
 These disks are continuously moved by priests in the temple. According to a prophecy, 
 when the last move of the puzzle is completed the world will end.
 These priests acting on the prophecy, follow the immutable rule by Lord Brahma 
@@ -54,15 +55,15 @@ function towerOfHanoi($diskCount, $a = 'A', $b = 'B', $c = 'C')
 ## Options
 You can output the result with these three options:
 
-1) **full draw** : visual drawing of solving the algorithm
+1) **Full draw** : visual drawing of solving the algorithm
 
 ![Hamoi Full Draw](https://www.dropbox.com/s/hts53ebolit6knt/full_draw.png?raw=1)
 
-2) **simple solve** : just outputs the steps
+2) **Simple solve** : just outputs the steps
 
 ![Hamoi Simple Solve](https://www.dropbox.com/s/qhxiqrthf3qw6ap/simple_solve.png?raw=1)
 
-3) **only moves** : outputs the minimum number of moves for solving the algorithm based on disks
+3) **Only moves** : outputs the minimum number of moves for solving the algorithm based on disks
 
 ![Hamoi Calculate Moves](https://www.dropbox.com/s/pdt9toycwzm6g54/only_moves.png?raw=1)
 
