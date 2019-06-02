@@ -1,7 +1,7 @@
 # Tower Of Hanoi
-Simple PHP script to solve tower of hanoi alogorithm with viasual moves
+A simple PHP script to solve tower of hanoi alogorithm with viasual moves
 
-![Tower Of Hanoi Salar Bahador](https://www.dropbox.com/s/ydhzvoz3kugwyjx/index.png?dl=0)
+![Tower Of Hanoi Salar Bahador](https://www.dropbox.com/s/ydhzvoz3kugwyjx/index.png?raw=1)
 
 ## Introduction
 
@@ -56,15 +56,15 @@ You can output the result with these three options:
 
 1) **full draw** : visual drawing of solving the algorithm
 
-![Hamoi Full Draw](https://www.dropbox.com/s/hts53ebolit6knt/full_draw.png?dl=0)
+![Hamoi Full Draw](https://www.dropbox.com/s/hts53ebolit6knt/full_draw.png?raw=1)
 
 2) **simple solve** : just outputs the steps
 
-![Hamoi Simple Solve](https://www.dropbox.com/s/qhxiqrthf3qw6ap/simple_solve.png?dl=0)
+![Hamoi Simple Solve](https://www.dropbox.com/s/qhxiqrthf3qw6ap/simple_solve.png?raw=1)
 
 3) **only moves** : outputs the minimum number of moves for solving the algorithm based on disks
 
-![Hamoi Calculate Moves](https://www.dropbox.com/s/pdt9toycwzm6g54/only_moves.png?dl=0)
+![Hamoi Calculate Moves](https://www.dropbox.com/s/pdt9toycwzm6g54/only_moves.png?raw=1)
 
 ## Further readings
 
