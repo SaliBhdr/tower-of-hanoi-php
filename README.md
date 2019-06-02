@@ -1,6 +1,8 @@
 # Tower Of Hanoi
 Simple PHP script to solve tower of hanoi alogorithm with viasual moves
 
+![Tower Of Hanoi Salar Bahador](https://www.dropbox.com/s/ydhzvoz3kugwyjx/index.png?dl=0)
+
 ## Introduction
 
 Tower of Hanoi game is a puzzle invented by French mathematician Édouard Lucas in 1883.
@@ -53,8 +55,16 @@ function towerOfHanoi($diskCount, $a = 'A', $b = 'B', $c = 'C')
 You can output the result with these three options:
 
 1) **full draw** : visual drawing of solving the algorithm
+
+![Hamoi Full Draw](https://www.dropbox.com/s/hts53ebolit6knt/full_draw.png?dl=0)
+
 2) **simple solve** : just outputs the steps
+
+![Hamoi Simple Solve](https://www.dropbox.com/s/qhxiqrthf3qw6ap/simple_solve.png?dl=0)
+
 3) **only moves** : outputs the minimum number of moves for solving the algorithm based on disks
+
+![Hamoi Calculate Moves](https://www.dropbox.com/s/pdt9toycwzm6g54/only_moves.png?dl=0)
 
 ## Further readings
 
