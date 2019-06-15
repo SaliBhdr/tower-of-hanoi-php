@@ -73,3 +73,11 @@ div .moves-container {
 .column-headings-container .column-headings{
     padding: 15px 10px;
 }
+
+.tower-container .column-tag{
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-size: 1em;
+    color: #d4d4d4;
+}
