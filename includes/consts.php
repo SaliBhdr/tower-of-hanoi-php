@@ -19,7 +19,7 @@ define('SUBMIT_BTN_VALUE','Solve',true);
 
 define('HEAD_PAGE_TITLE','Tower Of Hanoi',true);
 define('HOME_PAGE_TITLE','<i class="zmdi zmdi-github"></i> Tower Of Hanoi',true);
-define('HANOI_SOLVE_PAGE_TITLE','<i class="zmdi zmdi-home"></i> Home<a>',true);
+define('HANOI_SOLVE_PAGE_TITLE','<i class="zmdi zmdi-home"></i> Home',true);
 
 define('TOPMARGIN_KEY','TOPMARGIN',true);
 define('DISK_SPACE',25,true);
