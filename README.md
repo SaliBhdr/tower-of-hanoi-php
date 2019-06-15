@@ -37,11 +37,11 @@ http://localhost/tower-of-hanoi/index.php
 
 A form will appear.The form contains one input for entering number of disks and 3 options for showing the result.
 
-Here is the simple algorithm of tower of hanoi
+**Here is the simple algorithm of tower of hanoi in PHP :** 
 ```
 function towerOfHanoi($diskCount, $a = 'A', $b = 'B', $c = 'C')
 {
-    if (isDiskMovable($diskCount)) {
+    if ($diskCount == 1) {
         echo "move {$a} to {$c}". "<br>";
     } else {
         towerOfHanoi($diskCount - 1, $a, $c, $b);
