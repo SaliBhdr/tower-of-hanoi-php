@@ -41,7 +41,7 @@ Here is the simple algorithm of tower of hanoi
 ```
 function towerOfHanoi($diskCount, $a = 'A', $b = 'B', $c = 'C')
 {
-    if (isDiskMovable($diskCount)) {
+    if ($diskCount == 1) {
         echo "move {$a} to {$c}". "<br>";
     } else {
         towerOfHanoi($diskCount - 1, $a, $c, $b);
